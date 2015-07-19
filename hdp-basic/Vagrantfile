@@ -1,0 +1,13 @@
+Vagrant.configure("2") do |config|
+
+  config.ssh.username = 'root'
+  config.ssh.password = 'horton'
+  
+  config.vm.provider "docker" do |d|
+    d.image = "hkropp/hdp-basic:0.1"
+    d.create_args = ['-h', 'n1.hdp']
+    d.ports = ['8080:8080']
+    d.cmd = ['/start-server']
+  end
+
+end

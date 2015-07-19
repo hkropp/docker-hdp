@@ -1,0 +1,18 @@
+#!/bin/bash
+
+while [ -z "$(netstat -tulpn | grep 8080)" ]; do
+  ambari-server start
+  ambari-agent start
+  sleep 5
+done
+
+sleep 5
+
+java -jar /tmp/ambari-shell.jar --ambari.host=n1.hdp << EOF
+services start
+EOF
+
+while true; do
+  sleep 3
+  tail -f /var/log/ambari-server/ambari-server.log
+done

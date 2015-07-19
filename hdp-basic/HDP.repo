@@ -1,0 +1,6 @@
+[HDP-2.3]
+name=HDP-2.3
+baseurl=http://public-repo-1.hortonworks.com/HDP-LABS/Projects/Dal-Preview/2.3.0.0-3/centos6/
+path=/
+enabled=1
+gpgcheck=0
